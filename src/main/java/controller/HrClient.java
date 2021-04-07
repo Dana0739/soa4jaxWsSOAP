@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 public class HrClient {
     private static Client client;
-    private static final String SOA_CRUD_SERV_URL = "https://localhost:34341/lab3springapplication/workers/";
+    private static final String SOA_CRUD_SERV_URL = "http://localhost:34345/workers/";
 
     public static void init() throws KeyManagementException, NoSuchAlgorithmException {
         TrustManager[] noopTrustManager = new TrustManager[]{
