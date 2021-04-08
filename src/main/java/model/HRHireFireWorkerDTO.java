@@ -4,76 +4,45 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@XmlRootElement(name = "export")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class HRHireFireWorkerDTO implements Serializable {
-
+public class HRHireFireWorkerDTO {
+    @XmlElement
     Long organizationId;
-
+    @XmlElement
     Position position;
-
+    @XmlElement
     Status status;
-
-    Date startDate;
-
-    Date endDate;
+    @XmlElement
+    String startDate;
+    @XmlElement
+    String endDate;
 
     public HRHireFireWorkerDTO() {
-        this.endDate = new Date();
+        Date ed = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        this.endDate = dateFormat.format(ed);
     }
 
-    public HRHireFireWorkerDTO(Long orgId, Position position, Status status, Date startDate) {
+    public HRHireFireWorkerDTO(Long orgId, Position position, Status status, String startDate) {
         this.organizationId = orgId;
         this.position = position;
         this.status = status;
         this.startDate = startDate;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
-    public void setOrganizationId(Long organizationId) {
-        this.organizationId = organizationId;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    @XmlElement
-    public Status getStatus() {
-        return status;
-    }
-
-    @XmlElement
-    public Position getPosition() {
-        return position;
-    }
-
-    @XmlElement
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    @XmlElement
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    @XmlElement
-    public Long getOrganizationId() {
-        return organizationId;
+    @Override
+    public String toString() {
+        return "<HRHireFireWorkerDTO>"
+                + "<organizationId>" + ((this.organizationId == null) ? "" : this.organizationId) + "</organizationId>"
+                + "<position>" + ((this.position == null) ? "" : this.position) + "</position>"
+                + "<status>" + ((this.status == null) ? "" : this.status) + "</status>"
+                + "<startDate>" + ((this.startDate == null) ? "" : this.startDate) + "</startDate>"
+                + "<endDate>" + ((this.endDate == null) ? "" : this.endDate) + "</endDate>"
+                + "</HRHireFireWorkerDTO>";
     }
 }
