@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class HrClient {
     private static final Client client = ClientBuilder.newBuilder().build();
-    private static final String SOA_CRUD_SERV_URL = "http://localhost:34345/workers/";
+    private static final String SOA_CRUD_SERV_URL = "http://localhost:34347/api/workers/";
 
     public static String callXmlHrHireFireWorkerDTO(long id, HRHireFireWorkerDTO hrHireFireWorkerDTO) {
         try {
